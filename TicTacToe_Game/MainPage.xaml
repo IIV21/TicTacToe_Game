@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicTacToe_Game.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Orange">#F7B05B</Color>
+            <Color x:Key="Kaki">#AF9B46</Color>
+            <Color x:Key="Yellow">#F7CE5B</Color>
+            <Color x:Key="BlueFigma">#053C5E</Color>
+            <Color x:Key="RedFigma">#353652</Color>
+            <Color x:Key="PurpleFigma">#6C63FF</Color>
+            <Color x:Key="Blueish">#1D3958</Color>
+            <Color x:Key="RedRose">#780116</Color>
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource RedFigma}"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="Text" Value=""/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource Yellow},Light={StaticResource Orange} }"/>
+                <Setter Property="Opacity" Value="0.1"/>
+            </Style>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="{StaticResource Blueish}"/>
+                <Setter Property="Text" Value=""/>
+                <Setter Property="FontSize" Value="Header"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource Yellow},Light={StaticResource Orange} }"/>
+                <Setter Property="FontFamily" Value=""/>
+                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Opacity" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout BackgroundColor="{StaticResource BlueFigma}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="B00"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Clicked="B00_Clicked"/>
+
+            <Button x:Name="B01"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Clicked="B01_Clicked"/>
+        
+            <Button x:Name="B02"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="4"
+                    Grid.Row="0"
+                    Clicked="B02_Clicked"/>
+       
+            <Button x:Name="B10"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Clicked="B10_Clicked"/>
+
+            <Button x:Name="B11"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Clicked="B11_Clicked"/>
+
+            <Button x:Name="B12"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="4"
+                    Grid.Row="2"
+                    Clicked="B12_Clicked"/>
+
+            <Button x:Name="B20"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Clicked="B20_Clicked"/>
+
+            <Button x:Name="B21"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="2"
+                    Grid.Row="4"
+                    Clicked="B21_Clicked"/>
+
+            <Button x:Name="B22"
+                    Style="{StaticResource ButtonStyle}"
+                    Grid.Column="4"
+                    Grid.Row="4"
+                    Clicked="B22_Clicked"/>
+        
+
+            <Button 
+                    Style="{StaticResource ButtonStyle}"
+                    BackgroundColor="{StaticResource RedRose}"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.RowSpan="5"
+                    Opacity="1"/>
+        
+            <Button 
+                    Style="{StaticResource ButtonStyle}"
+                    BackgroundColor="{StaticResource RedRose}"
+                    Grid.Column="3"
+                    Grid.Row="0"
+                    Grid.RowSpan="5"
+                    Opacity="1"/>
+
+            <Button 
+                    Style="{StaticResource ButtonStyle}"
+                    BackgroundColor="{StaticResource RedRose}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    Opacity="1"/>
+        
+            <Button 
+                    Style="{StaticResource ButtonStyle}"
+                    BackgroundColor="{StaticResource RedRose}"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="5"
+                    Opacity="1"/>
+
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   x:Name="l00"/>
+        
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="0"
+                   Grid.Column="2"
+                   x:Name="l01"/>
+        
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="0"
+                   Grid.Column="4"
+                   x:Name="l02"/>
+        
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   x:Name="l10"/>
+        
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   x:Name="l11"/>
+        
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="2"
+                   Grid.Column="4"
+                   x:Name="l12"/>
+        
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   x:Name="l20"/>
+
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="4"
+                   Grid.Column="2"
+                   x:Name="l21"/>
+        
+            <Label Style="{StaticResource LabelStyle}"
+                   Grid.Row="4"
+                   Grid.Column="4"
+                   x:Name="l22"/>
+ 
+            <Frame Grid.Row="5"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="5"
+                BackgroundColor="{StaticResource RedFigma}">
+                <Label Grid.Row="5"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="4"
+                   x:Name="finalLabel"
+                   Text=""
+                   FontSize="Header"
+                   TextColor="{StaticResource Yellow}"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+            </Frame>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="imagine.png"
+               HorizontalOptions="Start"
+                   Grid.Column="0"/>
+
+            <Button x:Name="playAgainButton"
+                    BackgroundColor="{StaticResource Yellow}" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Text="Play Again!"
+                    CornerRadius="20"
+                    FontSize="Header"
+                    TextColor="{StaticResource RedRose}"
+                    Grid.Column="1"
+                    Clicked="playAgainButton_Clicked"/>
+        </Grid>
+        
+    </StackLayout>
+
+</ContentPage>
